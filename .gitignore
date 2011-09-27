@@ -1,0 +1,9 @@
+*.pyc
+*.session
+*.webprj
+geo2pylons/build/
+geo2pylons/data/
+config_local.inc.php
+LOCAL
+.directory
+

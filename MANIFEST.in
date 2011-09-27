@@ -1,0 +1,3 @@
+include redletter/config/deployment.ini_tmpl
+recursive-include redletter/public *
+recursive-include redletter/templates *

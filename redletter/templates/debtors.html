@@ -1,0 +1,20 @@
+{% extends "container.html" %}
+
+{% block content %}
+
+<div id="debtors_widget"></div>
+<script src="/js/data_defs.js"></script>
+<script src="/js/DebtorsGrid.js"></script>
+<script src="/js/DebtorDialog.js"></script>
+
+<script>
+Ext.onReady(function(){
+
+var  widget = DebtorsGrid();
+
+});
+
+</script>
+
+
+{% endblock %}
