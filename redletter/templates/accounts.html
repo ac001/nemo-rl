@@ -1,0 +1,21 @@
+{% extends "container.html" %}
+
+{% block content %}
+
+<div id="accounts_widget"></div>
+<script src="/js/data_defs.js"></script>
+<script src="/js/AccountsGrid.js"></script>
+
+
+<script>
+Ext.onReady(function(){
+
+Ext.require('RL.AccountDialog');
+var  widget = AccountsGrid();
+
+});
+
+</script>
+
+
+{% endblock %}

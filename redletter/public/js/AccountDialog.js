@@ -1,6 +1,6 @@
 
 
-Ext.define('RL.DebtorDialog', {
+Ext.define('RL.AccountDialog', {
 	extend: 'Ext.window.Window',
 	
 	requires: [
@@ -11,7 +11,7 @@ Ext.define('RL.DebtorDialog', {
         
 		Ext.apply(this, {
 			
-			title: 'Hello',
+			title: this.account_id == 0 ? 'New Account' : 'Edit Account',
 			kkheight: 200,
 			width: 400,
 			layout: 'fit',
@@ -28,15 +28,9 @@ Ext.define('RL.DebtorDialog', {
 		
 		this.frm = 	Ext.create('Ext.form.Panel', 
 		{
-			//title: 'Simple Form',
 			bodyPadding:20,
 			frame: true,
-			MMwidth: 350,
 
-			// The form will submit an AJAX request to this URL when submitted
-			url: 'save-form.php',
-
-			// Fields will be arranged vertically, stretched to full width
 			layout: 'anchor',
 			defaults: {
 				anchor: '100%',
@@ -48,11 +42,11 @@ Ext.define('RL.DebtorDialog', {
 			defaultType: 'textfield',
 			items: [
 				{fieldLabel: 'Contact Name', name: 'contact'},
-				{fieldLabel: 'Company / Person', name: 'company', required: true},
+				{fieldLabel: 'Company / Person', name: 'entity', required: true},
 				{fieldLabel: 'Address', name: 'address', xtype: "textarea", required: true},
 				{fieldLabel: 'Postcode', name: 'postcode', required: true},
 				{fieldLabel: 'Tel', name: 'tel'},
-				{fieldLabel: 'Amount', name: 'amount', xtype: 'numberfield', required: true}
+				{fieldLabel: 'Email', name: 'email', required: true}
 			],
 			buttons: [
 				this.init_cancel_button(),
@@ -72,7 +66,7 @@ Ext.define('RL.DebtorDialog', {
 				if (f.isValid()) {
 					//var V = self.jobForm.getForm().getValues();
 					f.submit({
-						url: "/api/debtor/" + self.debtor_id,
+						url: "/api/account/" + self.account_id,
 						method: 'POST',
 						//params:{ vars: V },
 						waitMsg:'Saving Job',

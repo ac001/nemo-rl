@@ -11,14 +11,11 @@ log = logging.getLogger(__name__)
 
 class WwwController(BaseController):
 
-	def index(self):
-		# Return a rendered template
-		#return render('/main.mako')
-		# or, return a response
-		return render('/index.html')
-
-	def debtors(self):
+	def main(self, page=None):
 		
-		c.page = "debtors"
+		
+		c.page = page
 		
 		return render('/%s.html' % c.page)
+
+
