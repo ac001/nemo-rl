@@ -8,33 +8,31 @@ def init_model(engine):
     Session.configure(bind=engine)
 
 
-"""
-class Address(Base):
-    __tablename__ = 'addresses'
-
-    id = Column(Integer, primary_key=True)
-    email = Column(String(50))
-    user_id = Column(Integer, ForeignKey('users.id'))
-"""    
 
 class Account(Base):
 	__tablename__ = 'accounts'
 	account_id 	= Column(Integer, primary_key=True)
 	contact		= Column(String(50))
-	entity		= Column(String(50))
+	company		= Column(String(50))
 	address		= Column(String(255))
 	postcode	= Column(String(20))
 	email		= Column(String(100))
-	secret		= Column(String(20))
+	passwd		= Column(String(20))
+	passwd_change = Column(Boolean())
+	admin 		= Column(Boolean())
+	active 		= Column(Boolean())
 	
 	def dic(self):
 		return {'account_id': self.account_id,
 				'contact': self.contact,
-				'entity': self.entity, 
+				'company': self.company, 
 				'address': self.address,
 				'postcode': self.postcode,
-				'email': self.email
+				'email': self.email,
+				'admin': self.admin,
+				'active': self.active
 				}
+	
 	
 	
 class Debtor(Base):

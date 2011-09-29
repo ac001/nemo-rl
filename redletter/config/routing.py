@@ -19,6 +19,9 @@ def make_map(config):
     #map.connect('/error/{action}/{id}', controller='error')
 
     # CUSTOM ROUTES HERE
+    map.connect('/api/accounts', controller="api", action="accounts")
+    map.connect('/api/account/{account_id}', controller="api", action="account")
+    
     map.connect('/api/debtors', controller="api", action="debtors")
     map.connect('/api/debtor/{debtor_id}', controller="api", action="debtor")
     

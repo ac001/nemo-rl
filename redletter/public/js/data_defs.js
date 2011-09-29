@@ -19,15 +19,33 @@ Ext.Loader.setConfig({
 });
 		
 
-
-/********************************************************/
-/** Account ***/
-Ext.define('Debtor', {
+// Account 
+Ext.define('Account', {
 	extend: 'Ext.data.Model',
-	idProperty: 'debtor_id', 
-	fields: [	'debtor_id', 'contact', 'company', 'address','postcode','tel','fax','amount'
+	idProperty: 'account_id', 
+	fields: [	'account_id', 'contact', 'company', 'address', 'postcode', 'tel',
+				'email', 
+				'admin', {name: 'active', type: 'bool'},
+				'passwd_change', 'passwd'
 	]
 });
 
 
+
+// Debtor ***/
+Ext.define('Debtor', {
+	extend: 'Ext.data.Model',
+	idProperty: 'debtor_id', 
+	fields: [	'debtor_id', 'contact', 'entity', 'address','postcode','tel','fax','amount'
+	]
+});
+
+
+
+RLG = {}
+
+RLG.render = {}
+RLG.render.yn = function(val, meta, rec){
+	return val == true ? "Y" : "-"
+}
  
